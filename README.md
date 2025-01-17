@@ -221,7 +221,7 @@ Memory Map <a name="mmap"></a>
 Benchmarks <a name="bench"></a>
 ---
 
-The follwing benchmark results were obtained using `riscv64-unknown-elf-gcc (GCC) 10.1.0` with no compiler optimizations applied `-O0`. Each number represents the number of clock cycles taken for execution.
+The following benchmark results were obtained using `riscv64-unknown-elf-gcc (GCC) 10.1.0` with no compiler optimizations applied `-O0`. Each number represents the number of clock cycles taken for execution.
 
 | CPU Model      |  Quick Sort (10 El)  | Matrix Multiplication (4x4) | Memset (100-Integer Buffer) |
 | :---           |   :---:              | :---:                       | :---:                       | 

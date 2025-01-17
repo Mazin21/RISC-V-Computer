@@ -182,7 +182,7 @@ For more details, please visit [Veecom uBASIC](https://github.com/MazinCE/Veecom
 
 ### Games <a name="games"></a>
 
-#### Lunar Lander (Apple 1 1976)
+#### Lunar Lander (Apple I 1976)
 
 <figure align="center">
     <img src="images/lunar_lander.png", alt="lander">

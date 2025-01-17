@@ -73,7 +73,7 @@ Veecom's CPUs are based on the RV32IM variant of the RISC-V ISA, implementing th
 
 #### Branch Predictor
  
-The design of this predictor is static branch prediction, featuring a 6-bit Branch History Register `BHSR` and 64-entry Branch Target Buffer `BTB`. It uses an indexing machanisim similar to `GShare predictors`, where the Program Counter `PC` value is XORed with the `BHSR`. This static predictor is a `Taken-Only` design, where only taken branches are stored in the `BTB`.
+The design of this predictor is static branch prediction, featuring a 6-bit Branch History Register `BHSR` and 64-entry Branch Target Buffer `BTB`. It uses an indexing mechanism similar to `GShare predictors`, where the Program Counter `PC` value is XORed with the `BHSR`. This static predictor is a `Taken-Only` design, where only taken branches are stored in the `BTB`.
 
 <figure align="center">
     <img src="images/branch_predictor.png", alt="via">

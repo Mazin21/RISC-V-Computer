@@ -6,6 +6,7 @@
 #include <ctype.h>
 
 #define GRAVITY 0
+#define RETURN_KEY (char)10
 
 static Game_t self;
 
@@ -73,8 +74,7 @@ void Game_ReadInput(void)
     {
         char k = read_key();
 
-        // "Return" key pressed?
-        if (k == (char)10)
+        if (k == RETURN_KEY)
         {
             break;
         }
@@ -103,12 +103,12 @@ void Game_UpdateStatus(void)
 
 bool Game_BurnValid(void)
 {
-    if (isdigit(self.burn_input_buff[0]) == 0)
+    if (!isdigit(self.burn_input_buff[0]))
     {
         return false;
     }
 
-    if (self.burn_input_index > 1 && isdigit(self.burn_input_buff[1]) == 0)
+    if (self.burn_input_index > 1 && !isdigit(self.burn_input_buff[1]))
     {
         return false;
     }
@@ -132,23 +132,21 @@ void GAME_LANDING(void)
     if (!Game_BurnValid())
     {
         self.cur_state = INVALID_BURN;
-        return;
     }
-
-    Game_UpdateStatus();
-
-    if (self.fuel_units <= 0)
+    else
     {
-        dma_write("\nOUT OF FUEL");
-        self.burn = 0;
-        self.cur_state = OUT_OF_FUEL;
-        return;
-    }
+        Game_UpdateStatus();
 
-    if (self.height <= 0)
-    {
-        self.cur_state = ON_THE_MOON;
-        return;
+        if (self.fuel_units <= 0)
+        {
+            dma_write("\nOUT OF FUEL");
+            self.burn = 0;
+            self.cur_state = OUT_OF_FUEL;
+        }
+        else if (self.height <= 0)
+        {
+            self.cur_state = ON_THE_MOON;
+        }
     }
 }
 
@@ -170,11 +168,12 @@ void GAME_OUT_OF_FUEL(void)
     if (self.height <= 0)
     {
         self.cur_state = ON_THE_MOON;
-        return;
     }
-
-    Game_DisplayStatus();
-    Game_UpdateStatus();
+    else
+    {
+        Game_DisplayStatus();
+        Game_UpdateStatus();
+    }
 }
 
 void GAME_ON_THE_MOON(void)

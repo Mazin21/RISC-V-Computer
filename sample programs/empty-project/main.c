@@ -2,14 +2,9 @@
 
 int main(void)
 {
-   char* message = "printf is slow, it outputs a single\ncharacter at a time.\n";
 
-   printf("%s", message);
+  dma_write("Powered by RISC-V");
 
-   message = "\nDMA however, is BLAZINGLY fast!\n";
-
-   dma_write(message);
-
-   for(;;)
-      ;
+  for (;;)
+    ;
 }

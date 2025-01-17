@@ -18,7 +18,7 @@ typedef struct
     char status[40];
 
 } Game_t;
-const char *a = "CAR_MANUFACTURERS";
+
 static Game_t self;
 
 void Game_Init(void)
@@ -73,7 +73,7 @@ void Game_Reset(void)
             self.num_attempts = 0;
 
             clear_terminal();
-            return;
+          
         }
         else
         {

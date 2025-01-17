@@ -2,7 +2,7 @@ INCLUDE_DIRS = ../util/
 COMPILER_DIR = C:/SysGCC/risc-v/bin
 CC = $(COMPILER_DIR)/riscv64-unknown-elf-gcc
 RV_CFG = -march=rv32im -mabi=ilp32
-CFLAGS = -c $(RV_CFG) -I $(INCLUDE_DIRS) -O3
+CFLAGS = -c $(RV_CFG) -I $(INCLUDE_DIRS) -O0
 LDFLAGS = -nostartfiles -specs=nano.specs -ffunction-sections $(RV_CFG) -T ../linker.ld
 
 OBJS = *.o
